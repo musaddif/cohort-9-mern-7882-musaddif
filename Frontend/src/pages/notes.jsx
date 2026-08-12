@@ -2,10 +2,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router";
 
 function NotesPage() {
-const navigate = useNavigate();
-  const handleLogout = () => {
-navigate("/login");
-  };
+const handleLogout = () => {
+  localStorage.removeItem("isAuthenticated");
+  navigate("/login", { replace: true });
+};
 
   return (
     <div className="min-h-screen bg-[#faf9ff] text-slate-900">

@@ -14,15 +14,14 @@ function ResetPassword() {
   const [localError, setLocalError] = useState("");
   const [resetSuccess, setResetSuccess] = useState(false);
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error } = useSelector((state) => state.auth);
 
   useEffect(() => {
     return () => {
-      dispatch(clearAuthError());
+      console.log("ResetPassword component unmounted, clearing local error.");
     };
-  }, [dispatch]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,12 +37,7 @@ function ResetPassword() {
       return;
     }
 
-    try {
-      await dispatch(resetPasswordUser({ token, password })).unwrap();
-      setResetSuccess(true);
-    } catch (err) {
-      // Handled in Redux state
-    }
+  console.log("Resetting password with token:", token, "and new password:",)
   };
 
   return (

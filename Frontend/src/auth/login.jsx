@@ -12,8 +12,11 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email || !password) return;
+
+  if (email && password) {
+    localStorage.setItem("isAuthenticated", "true");
     navigate("/notes");
+  }
   };
 
   return (

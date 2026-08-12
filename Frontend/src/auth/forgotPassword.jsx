@@ -11,11 +11,8 @@ function ForgotPassword() {
     e.preventDefault();
     if (!email.trim()) return;
 
-    try {
-      await dispatch(forgotPasswordUser({ email })).unwrap();
-      setSubmitted(true);
-    } catch (err) {
-    }
+    console.log("Email submitted:", email);
+   
   };
 
   return (
